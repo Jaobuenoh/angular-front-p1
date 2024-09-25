@@ -1,0 +1,38 @@
+table {
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.container-content {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  min-width: 650px;
+}
+
+.spinner-class {
+  padding: 10px;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-icon {
+  padding: 0px;
+  margin: 0px 0px -5px 0px;
+}
+
+.action-button {
+  margin-top: 20px;
+}
+
+

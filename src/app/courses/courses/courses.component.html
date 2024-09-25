@@ -1,0 +1,81 @@
+<div class="container-content">
+  <mat-card>
+
+    <div class="content">
+      <mat-card-content>
+
+        <p>
+          <mat-toolbar color="primary">
+            <span>Copilação do rato</span>
+          </mat-toolbar>
+        </p>
+
+        <div *ngIf="courses$ | async as courses; else loading ">
+
+          <table mat-table [dataSource]="courses" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="_id">
+              <th mat-header-cell *matHeaderCellDef>ID</th>
+              <td class="linha-item" mat-cell *matCellDef="let course"> {{course._id}} </td>
+            </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Curso</th>
+              <td class="linha-item" mat-cell *matCellDef="let course"> {{course.name}} </td>
+            </ng-container>
+            <!-- Category Column -->
+            <ng-container matColumnDef="category">
+              <th mat-header-cell *matHeaderCellDef>Category</th>
+              <td class="linha-item" mat-cell *matCellDef="let course"> {{course.category}}
+                <mat-icon aria-hidden="false" aria-label="Curse category">{{course.category | category}}</mat-icon>
+              </td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container class="action-container" matColumnDef="actions">
+
+              <mat-header-cell *matHeaderCellDef>
+                <div class="action-button">
+                  <button (click)="onAdd()" mat-mini-fab color="accent" aria-label="Add">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+              </mat-header-cell>
+
+              <mat-cell *matCellDef="let course">
+                <div class="action-button">
+                  <button mat-icon-button color="primary" aria-label="Edit">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </div>
+                <div class="action-button">
+                  <button mat-icon-button (click)="onDelete(course)" color="warn" aria-label="Delete">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </mat-cell>
+
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+
+        <ng-template #loading>
+
+          <div class="spinner-class">
+
+            <mat-spinner></mat-spinner>
+
+          </div>
+        </ng-template>
+
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,33 @@
+<mat-card>
+
+  <mat-toolbar color="primary">Pneumoultramicroscópicossilicovulcanoconiótico</mat-toolbar>
+
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-form-field class="example-full-width">
+        <!-- <mat-label>Favorite food</mat-label> -->
+        <input matInput placeholder="Nome" formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-select formControlName="category" placeholder="Categories">
+          <mat-option [value]="null">Categories</mat-option>
+          <mat-option value="agiota">Agióta</mat-option>
+          <mat-option value="hitman">Hitman</mat-option>
+          <mat-option value="contar cartas">Contar cartas</mat-option>
+          <mat-option value="171">171</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+
+    <button mat-raised-button color="primary" (click)="onSubmit()">Button 1</button>
+    <button mat-raised-button (click)="onCancel()">Button 2</button>
+
+
+  </mat-card-actions>
+
+</mat-card>

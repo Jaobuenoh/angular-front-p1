@@ -1,0 +1,31 @@
+<div class="container-content">
+  <mat-card>
+
+    <div>
+      <mat-card-content>
+        <p>
+          <mat-toolbar color="primary">
+            <span>Copilação do rato</span>
+          </mat-toolbar>
+        </p>
+
+        <div class="table-flex mat-elevation-z8">
+          <app-courses-list *ngIf="courses$ | async as courses; else loading"
+           [courses]="courses"
+           (add)="onAdd()"
+           (edit)="onEdit($event)"
+           (delete)="onDelete($event)"
+          ></app-courses-list>
+        </div>
+
+        <ng-template #loading>
+          <div class="spinner-class">
+            <mat-spinner></mat-spinner>
+          </div>
+
+        </ng-template>
+      </mat-card-content>
+    </div>
+
+  </mat-card>
+</div>

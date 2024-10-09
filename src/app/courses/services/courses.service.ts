@@ -30,7 +30,7 @@ export class CoursesService {
 
   //Partial means that you are allowed to save without all the properties
   save(record: Partial<Course>) {
-    if (record._id) {
+    if (record._id === '') {
     return this.create(record);
     }
     return this.update(record); // for some reason the create will work right here to

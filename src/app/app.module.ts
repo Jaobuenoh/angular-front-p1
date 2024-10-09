@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CoursesModule } from './courses/courses.module';
 
 
 
@@ -21,6 +22,7 @@ import { AppComponent } from './app.component';
     MatToolbarModule,
     HttpClientModule,
     MatDialogModule,
+    CoursesModule
 
   ],
   providers: [],

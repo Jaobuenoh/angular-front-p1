@@ -8,15 +8,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { SharedModule } from '../shared/shared.module';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
-
+import { CourseFormComponent } from './containers/course-form/course-form.component';
 import { CoursesComponent } from './containers/courses/courses.component';
 import { CoursesRoutingModule } from './courses-routing.module';
-import { CourseFormComponent } from './containers/course-form/course-form.component';
 
 
 
@@ -40,7 +40,8 @@ import { CourseFormComponent } from './containers/course-form/course-form.compon
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule
   ]
 })
 export class CoursesModule { }

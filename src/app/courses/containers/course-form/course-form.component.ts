@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NonNullableFormBuilder } from '@angular/forms';
 
 import { CoursesService } from '../../services/courses.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from '../../model/course';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 
 
@@ -14,6 +15,8 @@ import { Course } from '../../model/course';
 })
 export class CourseFormComponent implements OnInit {
 
+  isToggleOn: boolean = false;
+
   //not to be null
   form = this.formBuilder.group({
     _id: [''],
@@ -23,7 +26,8 @@ export class CourseFormComponent implements OnInit {
   //not to be null
   constructor(private formBuilder: NonNullableFormBuilder,
     private service: CoursesService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router: Router) {
 
   }
 
@@ -37,12 +41,26 @@ export class CourseFormComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    this.service.save(this.form.value).subscribe(result => console.log(result));
+  onToggleChange(event: MatSlideToggleChange) {
+    this.isToggleOn = event.checked;
+    console.log('Toggle is now: ', event.checked); // true (on) or false (off)
   }
+
+  onSubmit() {
+    if (this.isToggleOn === true) {
+      this.service.save(this.form.value).subscribe(() => {
+        this.router.navigate([''], { relativeTo: this.route });
+      }
+      );
+    }
+    this.service.save(this.form.value).subscribe();
+  }
+
+
 
   onCancel() {
 
   }
+
 
 }

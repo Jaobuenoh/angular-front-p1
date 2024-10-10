@@ -5,25 +5,52 @@ form {
   margin: 20px 10px 10px 20px;
 }
 
-mat-form-field{
+mat-form-field {
   border-radius: 30px;
 }
 
-mat-toolbar{
+mat-toolbar {
   margin: 20px;
 }
 
-mat-card-content{
+mat-card-content {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-mat-card-actions{
+mat-card-actions {
+  display: flex;
+  justify-content: center;
   gap: 10px;
+  margin: 0px 0px 0px 200px;
 }
 
-mat-card{
+.slide-class {
+  margin: 0px 0px 0px 42px;
+}
+
+mat-card {
   display: flex;
   align-items: center;
 }
+
+.table-flex {
+  margin: 15px 0px 15px 0px;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.text-class {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+
+
+
+
